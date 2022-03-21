@@ -33,13 +33,12 @@ class ThemeColorData with ChangeNotifier{
 }
 ThemeData darkMode=ThemeData(
   primarySwatch: Colors.blueGrey,
+  cardColor: Colors.blueGrey.shade700,
 
 );
 
 ThemeData lightMode=ThemeData(
   primarySwatch: Colors.cyan,
-
-
-
+  cardColor: Colors.blueGrey.shade200,
 );
 

@@ -36,6 +36,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   shared_preferences: ^2.0.13
   provider: ^6.0.2
+  http: ^0.13.4
+  flutter_custom_clippers: ^2.0.0
+  google_fonts: any
 
 dev_dependencies:
   flutter_test:
