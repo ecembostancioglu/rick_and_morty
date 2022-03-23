@@ -1,5 +1,5 @@
 class Character{
-  int? id;
+  late int id;
   String? name;
   String? img;
   String? status;

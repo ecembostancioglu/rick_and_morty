@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeColorData with ChangeNotifier{
@@ -32,13 +33,31 @@ class ThemeColorData with ChangeNotifier{
 
 }
 ThemeData darkMode=ThemeData(
-  primarySwatch: Colors.blueGrey,
-  cardColor: Colors.blueGrey.shade700,
-
-);
+  backgroundColor: HexColor('#405059'),
+  scaffoldBackgroundColor:HexColor('#5b6266'),
+  textSelectionTheme: TextSelectionThemeData(
+      cursorColor: HexColor('#36A5B2')),
+  primaryColor: HexColor('#263238'),
+  cardTheme: CardTheme(
+      color: HexColor('#37474f'),
+      elevation: 4),
+  appBarTheme: AppBarTheme(
+    elevation: 2,
+    color: HexColor('#33424a'),
+),);
 
 ThemeData lightMode=ThemeData(
-  primarySwatch: Colors.cyan,
-  cardColor: Colors.blueGrey.shade200,
+  backgroundColor: HexColor('#316759'),
+  scaffoldBackgroundColor:HexColor('#b0e6a3'),
+  textSelectionTheme: TextSelectionThemeData(
+      cursorColor: HexColor('#36A5B2')),
+  primaryColor:HexColor('#316759'),
+  cardTheme: CardTheme(
+      color: HexColor('#daffd1'),
+      elevation: 4),
+  appBarTheme: AppBarTheme(
+    elevation: 2,
+    color: HexColor('#316759'),
+  ),
 );
 

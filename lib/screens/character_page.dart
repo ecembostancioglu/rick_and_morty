@@ -1,8 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
+import 'package:rick_and_morty/screens/character_details.dart';
 import '../models/character.dart';
 
 class CharacterPage extends StatefulWidget {
@@ -21,8 +23,6 @@ class _CharacterPageState extends State<CharacterPage> {
 
     Map<String,dynamic> map=await jsonDecode(response.body);
     List<dynamic> data=map['results'];
-   // print(data['results'][0]['name']);
-    print(data[0]['name']);
 
  setState(() {
    for(var i=0;i<data.length;i++){
@@ -65,49 +65,53 @@ class _CharacterPageState extends State<CharacterPage> {
               ) ,
               itemCount: characterList.length,
               itemBuilder: (context,index){
-                return Card(
-                  elevation: 10,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20)
-                    )
-                  ),
-                  child: Stack(
-                  children: [
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.cyan.shade500,
-                          borderRadius: BorderRadius.vertical(
-                              bottom:Radius.circular(20),
-                              top:Radius.circular(20) )),
-                          height: MediaQuery.of(context).size.height*0.08,
-                          width:MediaQuery.of(context).size.width,
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                                (characterList[index].name.toString()),
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.shadowsIntoLight(fontSize: 20,
-                              color: Colors.red.shade700,
-                              fontWeight: FontWeight.w500,
-                              shadows: [
-                                Shadow(
-                                  color: Colors.red,
-                                  blurRadius:5,
-                                )]),
-                            ),
-                          ),),
+                return GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (_)=> CharacterDetails()));
+                  },
+                  child: Card(
+                    elevation: 10,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(20)
+                      )
                     ),
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: CircleAvatar(
-                       radius: 72,
-                      backgroundImage:
-                      NetworkImage(characterList[index].img.toString())),
-                        ),
-                  ]),
+                    child: Stack(
+                    children: [
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: HexColor('#3bd1c0'),
+                            borderRadius: BorderRadius.vertical(
+                                bottom:Radius.circular(20),
+                                top:Radius.circular(20) )),
+                            height: MediaQuery.of(context).size.height*0.08,
+                            width:MediaQuery.of(context).size.width,
+                            child: Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                  (characterList[index].name.toString()),maxLines: 1,
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.shadowsIntoLight(fontSize: 22,
+                                fontWeight: FontWeight.w500,
+
+                                shadows: [
+                                  Shadow(
+                                    blurRadius:3,
+                                  )]),
+                              ),
+                            ),),
+                      ),
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: CircleAvatar(
+                         radius: 70,
+                        backgroundImage:
+                        NetworkImage(characterList[index].img.toString())),
+                          ),
+                    ]),
+                  ),
                 );
               }),
         ),
