@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Center(
-          child:Image.asset('assets/logo_header.png',height: 70,excludeFromSemantics:false),
+          child:Image.asset('assets/logo_header.png',height: 70),
         ),
         elevation: 2,
         actions: [
