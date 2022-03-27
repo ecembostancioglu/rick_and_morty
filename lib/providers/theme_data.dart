@@ -48,7 +48,7 @@ ThemeData darkMode=ThemeData(
 
 ThemeData lightMode=ThemeData(
   backgroundColor: HexColor('#316759'),
-  scaffoldBackgroundColor:HexColor('#b0e6a3'),
+  scaffoldBackgroundColor:HexColor('#a6d99a'),
   textSelectionTheme: TextSelectionThemeData(
       cursorColor: HexColor('#36A5B2')),
   primaryColor:HexColor('#316759'),
