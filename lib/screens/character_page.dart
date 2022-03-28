@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:http/http.dart';
@@ -34,14 +35,14 @@ class _CharacterPageState extends State<CharacterPage> {
     setState(() {
       pageNumber++;
       for(var i=0;i<data.length;i++){
-        Character char=Character(img: '', gender: '', name: '', id: 1, species: '', status: '');
+        Character char=Character();
         char.id=data[i]['id'];
         char.name=data[i]['name'];
         char.img=data[i]['image'];
         char.status=data[i]['status'];
         char.gender=data[i]['gender'];
         char.species=data[i]['species'];
-
+        loading=true;
         characters.add(char);
 
       }
@@ -56,7 +57,7 @@ class _CharacterPageState extends State<CharacterPage> {
     getCharacters();
     _scrollController.addListener(() {
       if(_scrollController.position.pixels>=
-      _scrollController.position.maxScrollExtent && !loading){
+      _scrollController.position.maxScrollExtent){
        print('new data call');
       getCharacters();
       }
@@ -69,22 +70,14 @@ class _CharacterPageState extends State<CharacterPage> {
     _scrollController.dispose();
   }
 
-  void initializePosts() async{
-    setState(() {
-      loading=true;
-    });
-
-
-
-
-  }
-
-
  @override
  Widget build(BuildContext context) {
-   return Scaffold(
-     body: Container(
-       decoration: BoxDecoration(
+   return loading==false
+       ? SpinKitChasingDots(
+     color: Colors.green.shade600,)
+       : Scaffold(
+         body: Container(
+         decoration: BoxDecoration(
            gradient: LinearGradient(
              begin: Alignment.topRight,
              end: Alignment.bottomLeft,
@@ -96,7 +89,7 @@ class _CharacterPageState extends State<CharacterPage> {
        child: Padding(
          padding: const EdgeInsets.all(10),
          child: GridView.builder(
-           controller: _scrollController,
+             controller: _scrollController,
              gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
                crossAxisCount: 2,
                crossAxisSpacing: 40,
@@ -109,12 +102,12 @@ class _CharacterPageState extends State<CharacterPage> {
                  onTap: (){
                    Navigator.push(context, MaterialPageRoute(builder: (_)=>
                        CharacterDetails(
-                         id: characters[index].id,
-                         img: characters[index].img,
-                         gender: characters[index].gender,
-                         name: characters[index].name,
-                         species: characters[index].species,
-                         status:characters[index].status,
+                         id: characters[index].id!,
+                         img: characters[index].img!,
+                         gender: characters[index].gender!,
+                         name: characters[index].name!,
+                         species: characters[index].species!,
+                         status:characters[index].status!,
                        )));
                  },
                  child: Card(
@@ -138,7 +131,7 @@ class _CharacterPageState extends State<CharacterPage> {
                              child: Align(
                                alignment: Alignment.center,
                                child: Text(
-                                 (characters[index].name),
+                                 (characters[index].name!),
                                  maxLines: 1,
                                  textAlign: TextAlign.center,
                                  style: GoogleFonts.shadowsIntoLight(fontSize: 22,

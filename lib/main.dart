@@ -1,3 +1,4 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rick_and_morty/providers/theme_data.dart';
@@ -20,7 +21,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: Provider.of<ThemeColorData>(context).themeColor,
-      home:  HomePage(),
+      home:  AnimatedSplashScreen(
+        duration: 3000,
+        splash:'assets/rick.jpg',
+        splashIconSize: double.infinity,
+        nextScreen: HomePage(),
+        splashTransition: SplashTransition.slideTransition,
+      ),
     );
   }
 }
