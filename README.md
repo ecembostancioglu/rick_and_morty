@@ -1,9 +1,11 @@
 #  Rick and Morty
 Rick and Morty application using http Package.
 
+
 ## API Endpoints Used
 
 Please refer https://rickandmortyapi.com/
+
 
 ##  Libraries which I used in the application:
 - Provider : https://pub.dev/packages/provider
@@ -16,10 +18,14 @@ Please refer https://rickandmortyapi.com/
 - Glassmorphism : https://pub.dev/packages/glassmorphism
 
 
-
 ## Soon ~~
 
 - [ ] Editing Screen Pages
 - [ ] Episodes
 - [ ] Locations
 
+
+## Screenshots 
+ ![1](https://user-images.githubusercontent.com/72046458/161151597-3910bbc2-d464-4423-b5c4-738acca477d4.png) 
+ ![2](https://user-images.githubusercontent.com/72046458/161151677-9e0e9a88-4701-4ab1-8751-36d58dbd1ec1.png)
+     
