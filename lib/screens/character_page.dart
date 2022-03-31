@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -86,7 +85,7 @@ class _CharacterPageState extends State<CharacterPage> {
              tileMode: TileMode.mirror,
            )
        ),
-       child: Padding(
+         child: Padding(
          padding: const EdgeInsets.all(10),
          child: GridView.builder(
              controller: _scrollController,

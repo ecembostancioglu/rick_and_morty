@@ -37,13 +37,12 @@ dependencies:
   shared_preferences: ^2.0.13
   provider: ^6.0.2
   http: ^0.13.4
-  flutter_custom_clippers: ^2.0.0
   google_fonts: any
   hexcolor: ^2.0.6
-  image_fade: ^0.3.0
   animated_splash_screen: ^1.2.0
   flutter_spinkit: ^5.1.0
   glassmorphism: ^3.0.0
+
 
 
 dev_dependencies:

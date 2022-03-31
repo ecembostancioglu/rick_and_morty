@@ -1,16 +1,25 @@
-# rick_and_morty
+#  Rick and Morty
+Rick and Morty application using http Package.
 
-A new Flutter project.
+## API Endpoints Used
 
-## Getting Started
+Please refer https://rickandmortyapi.com/
 
-This project is a starting point for a Flutter application.
+##  Libraries which I used in the application:
+- Provider : https://pub.dev/packages/provider
+- Shared Preferences : https://pub.dev/packages/shared_preferences
+- http : https://pub.dev/packages/http
+- Google Fonts : https://pub.dev/packages/google_fonts
+- Hex Color : https://pub.dev/packages/hexcolor
+- Animated Splash Screen : https://pub.dev/packages/animated_splash_screen
+- Spinkit : https://pub.dev/packages/flutter_spinkit
+- Glassmorphism : https://pub.dev/packages/glassmorphism
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Soon ~~
+
+- [ ] Editing Screen Pages
+- [ ] Episodes
+- [ ] Locations
+
